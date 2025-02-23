@@ -43,10 +43,10 @@ body {
   font-size: 0.875rem;
   line-height: 1.4;
   font-family: "Poppins", sans-serif;
-  color: #ffffff;
+  color: #022d68;
 }
 body.style_3 {
-    background: #ffffff url(../img/patt_3.png) no-repeat center left;
+    background: #022d68 url(../img/pattern_3.png) no-repeat center left;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -54,7 +54,7 @@ body.style_3 {
 }
 @media (max-width: 767px) {
     body.style_3 {
-        background: #ffffff;
+        background: #022d68;
     }
 }
 
@@ -406,12 +406,12 @@ footer ul li a:hover {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  background: -moz-linear-gradient(165deg, rgb(0, 3, 43) 0%, transparent 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background: -webkit-linear-gradient(165deg, rgb(2, 8, 37) 0%, transparent 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background: linear-gradient(165deg, rgb(0, 22, 89) 0%, transparent 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  /*background: -moz-linear-gradient(165deg, rgb(0, 3, 43) 0%, transparent 100%);*/
+  /*!* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+  /*background: -webkit-linear-gradient(165deg, rgb(6, 13, 48) 0%, transparent 100%);*/
+  /*!* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+  /*background: linear-gradient(165deg, rgb(0, 3, 43) 0%, transparent 100%);*/
+  /*!* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
 }
 
 .container_centering {
@@ -477,32 +477,26 @@ footer ul li a:hover {
   font-weight: 500;
   letter-spacing: 3px;
 }
-@media (max-width: 991px) {
-  .main_title_1 img {
-    display: none;
-  }
-}
+
 .main_title_1 h1, .main_title_1 h3 {
   color: #fff;
   margin: 0 0 25px 0;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 62px;
-  font-size: 3.875rem;
+  font-size: 42px;
 }
 @media (max-width: 767px) {
   .main_title_1 h1, .main_title_1 h3 {
-    font-size: 42px;
+    font-size: 32px;
     margin-bottom: 20px;
   }
 }
 .main_title_1 p {
-  font-size: 18px;
-  font-size: 1.125rem;
+  font-size: 16px;
 }
 @media (max-width: 767px) {
   .main_title_1 p {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 15px;
   }
 }
@@ -529,13 +523,11 @@ h3.main_question {
   padding: 0;
   font-weight: 500;
   color: #fff;
-  font-size: 18px;
-  font-size: 1.125rem;
+  font-size: 24px;
 }
 h3.main_question strong {
   display: block;
   font-size: 14px;
-  font-size: 0.875rem;
   opacity: 0.5;
 }
 
@@ -613,7 +605,7 @@ button[disabled] {
 }
 
 .ui-progressbar {
-  height: 2px;
+  height: 5px;
   width: 100%;
 }
 

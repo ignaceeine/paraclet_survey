@@ -39,19 +39,19 @@
     <div data-loader="circle-side-2"></div>
 </div><!-- /loader_form -->
 
-<header>
+<header class="bg-light">
     <div class="container-fluid">
         <div class="row">
             <div class="col-5">
-                <a href="{{ route('index') }}"><img src="{{ URL::asset('build/img/logo-paraclet.png') }}" alt="" width="145" height="85"></a>
+                <a href="{{ route('index') }}"><img src="{{ URL::asset('build/img/logo-paraclet.png') }}" alt="" width="125" height="65"></a>
             </div>
             <div class="col-7">
                 <div id="social">
                     <ul>
-                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                        <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
-                        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                        <li><a href="#"><i class="bi bi-tiktok"></i></a></li>
+                        <li><a href="#" class="text-dark"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="#" class="text-dark"><i class="bi bi-twitter-x"></i></a></li>
+                        <li><a href="#" class="text-dark"><i class="bi bi-instagram"></i></a></li>
+                        <li><a href="#" class="text-dark"><i class="bi bi-tiktok"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                         <h3><img src="{{ URL::asset('build/img/main_icon_1.svg') }}" width="80" height="80" alt=""> Formulaire d'enquête</h3>
                         <p>An mei sadipscing dissentiet, eos ea partem viderer facilisi. Brute nostrud democritum in
                             vis, nam ei erat zril mediocrem. No postea diceret vix.</p>
-                        <p><em>- l'equipe Paraclet</em></p>
+                        <p><em>- l'équipe Paraclet</em></p>
                     </div>
                 </div>
                 <!-- /col -->

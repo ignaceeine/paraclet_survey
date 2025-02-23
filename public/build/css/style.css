@@ -4,7 +4,7 @@ Theme URI: http://www.ansonika.com/satisfyc/
 Author: Ansonika
 Author URI: http://themeforest.net/user/Ansonika/
 
-[Table of contents] 
+[Table of contents]
 
 1. SITE STRUCTURE and TYPOGRAPHY
 - 1.1 Typography
@@ -43,43 +43,19 @@ body {
   font-size: 0.875rem;
   line-height: 1.4;
   font-family: "Poppins", sans-serif;
-  color: #444;
-}
-body.style_1 {
-  background: #ce61c9 url(../img/pattern_3.svg) no-repeat center left;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-@media (max-width: 767px) {
-  body.style_1 {
-    background: #ce61c9;
-  }
-}
-body.style_2 {
-  background: #9933ff url(../img/pattern_3.svg) no-repeat center left;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-@media (max-width: 767px) {
-  body.style_2 {
-    background: #9933ff;
-  }
+  color: #ffffff;
 }
 body.style_3 {
-  background: #454de5 url(../img/pattern_3.svg) no-repeat center left;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background: #ffffff url(../img/patt_3.png) no-repeat center left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 @media (max-width: 767px) {
-  body.style_3 {
-    background: #454de5;
-  }
+    body.style_3 {
+        background: #ffffff;
+    }
 }
 
 h1,
@@ -430,11 +406,11 @@ footer ul li a:hover {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  background: -moz-linear-gradient(165deg, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  background: -moz-linear-gradient(165deg, rgb(0, 3, 43) 0%, transparent 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background: -webkit-linear-gradient(165deg, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  background: -webkit-linear-gradient(165deg, rgb(2, 8, 37) 0%, transparent 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background: linear-gradient(165deg, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  background: linear-gradient(165deg, rgb(0, 22, 89) 0%, transparent 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 

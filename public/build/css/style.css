@@ -1,39 +1,3 @@
-/*
-Theme Name: Satisfyc 1.0
-Theme URI: http://www.ansonika.com/satisfyc/
-Author: Ansonika
-Author URI: http://themeforest.net/user/Ansonika/
-
-[Table of contents]
-
-1. SITE STRUCTURE and TYPOGRAPHY
-- 1.1 Typography
-- 1.2 Buttons
-- 1.3 Structure
-
-2. CONTENT
-- 2.1 Wizard
-- 2.2 Success submit
-
-3. COMMON
-- 3.1 Misc
-- 3.2 Spacing
-
-/*============================================================================================*/
-/* 1.  SITE STRUCTURE and TYPOGRAPHY */
-/*============================================================================================*/
-/*-------- 1.1 Typography --------*/
-/* rem reference
-10px = 0.625rem
-12px = 0.75rem
-14px = 0.875rem
-16px = 1rem (base)
-18px = 1.125rem
-20px = 1.25rem
-24px = 1.5rem
-30px = 1.875rem
-32px = 2rem
-*/
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -209,8 +173,8 @@ a.btn_1:hover,
 
 [data-loader="circle-side"] {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   top: 50%;
   left: 50%;
   margin-left: -25px;
@@ -219,7 +183,7 @@ a.btn_1:hover,
   -moz-animation: circle infinite .95s linear;
   -o-animation: circle infinite .95s linear;
   animation: circle infinite .95s linear;
-  border: 2px solid #333;
+  border: 4px solid rgba(2, 45, 104, 0.94);
   border-top-color: rgba(0, 0, 0, 0.2);
   border-right-color: rgba(0, 0, 0, 0.2);
   border-bottom-color: rgba(0, 0, 0, 0.2);

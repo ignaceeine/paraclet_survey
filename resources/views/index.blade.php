@@ -1,12 +1,12 @@
 @php use Illuminate\Support\Facades\URL; @endphp
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Satisfaction Survey form Wizard by Ansonika.">
-    <meta name="author" content="Ansonika">
+    <meta name="description" content="Satisfaction Survey form Wizard by Paraclet.">
+    <meta name="author" content="Paraclet">
     <title>Paraclet | Formulaire d'enquête de satisfaction</title>
 
     <!-- Favicons-->
@@ -69,8 +69,7 @@
                 <div class="col-xl-6 col-lg-6 d-flex align-items-center">
                     <div class="main_title_1">
                         <h3><img src="{{ URL::asset('build/img/main_icon_1.svg') }}" width="50" height="50" alt=""> Formulaire d'enquête</h3>
-                        <p>An mei sadipscing dissentiet, eos ea partem viderer facilisi. Brute nostrud democritum in
-                            vis, nam ei erat zril mediocrem. No postea diceret vix.</p>
+                        <p>Donnez votre avis sur le participants en répondants aux questions suivantes</p>
                         <p><em>- l'équipe Paraclet</em></p>
                     </div>
                 </div>
@@ -97,40 +96,6 @@
                                         </div>
                                     </div>
                                 @endfor
-
-                                {{--<div class="step">
-                                    <h3 class="main_question"><strong>1 sur 5</strong>How was the service provided?</h3>
-                                    <div class="form-group">
-                                        <label for="additional_message_label">Votre réponse</label>
-                                        <textarea name="additional_message" id="additional_message_label"
-                                                  class="form-control" style="height:200px; resize: none"
-                                                  onkeyup="getVals(this, 'additional_message');"></textarea>
-                                    </div>
-                                </div>
-                                <!-- /step 1-->
-
-                                <div class="step">
-                                    <h3 class="main_question mb-4"><strong>2 sur 5</strong>Would you reccomend our
-                                        company?</h3>
-                                    <div class="form-group">
-                                        <label for="additional_message_2_label">Votre réponse</label>
-                                        <textarea name="additional_message_2" id="additional_message_2_label"
-                                                  class="form-control" style="height:200px; resize: none"
-                                                  onkeyup="getVals(this, 'additional_message_2');"></textarea>
-                                    </div>
-                                </div>
-                                <!-- /step 2-->
-
-                                <div class="step">
-                                    <h3 class="main_question"><strong>3 sur 5</strong>How did you hear about us?</h3>
-                                    <div class="form-group">
-                                        <label for="additional_message_3_label">Votre réponse</label>
-                                        <textarea name="additional_message_3" id="additional_message_3_label"
-                                                  class="form-control" style="height:200px; resize: none"
-                                                  onkeyup="getVals(this, 'additional_message_3');"></textarea>
-                                    </div>
-                                </div>
-                                <!-- /step 3-->--}}
 
                                 <div class="step">
                                     <h3 class="main_question"><strong>{{ $step }} sur {{{ $step }}}</strong>Résumé</h3>

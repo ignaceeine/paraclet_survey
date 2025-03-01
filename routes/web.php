@@ -1,15 +1,26 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CampagneController;
+use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
-Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
-Route::get('/admin/campagne/{id}', [AdminController::class, 'show'])->name('admin.show');
+
+
+Route::get('admin/campagnes', [CampagneController::class, 'index'])->name('admin.campagne');
+Route::get('admin/campagnes/new', [CampagneController::class, 'create'])->name('campagne.create');
+Route::post('/admin/campagnes/new', [CampagneController::class, 'store'])->name('campagne.store');
+
+
+Route::get('admin/groupes', [GroupeController::class, 'index'])->name('admin.groupe');
+Route::get('admin/groupes/new/{id}', [GroupeController::class, 'create'])->name('groupe.create');
+Route::post('/admin/groupes/new', [GroupeController::class, 'store'])->name('groupe.store');
+
+
 
 Route::post('/admin/excel', [MembreController::class, 'store'])->name('members.store');
 
@@ -17,10 +28,6 @@ Route::post('/admin/excel', [MembreController::class, 'store'])->name('members.s
 Route::get('/', function () {
     return view('index');
 })->name('index');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

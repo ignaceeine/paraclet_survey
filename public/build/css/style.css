@@ -814,7 +814,7 @@ span.error:after {
   height: calc(2.85rem + 2px);
   color: #fff;
   font-weight: 500;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgb(255, 255, 255);
 }
 .form-control:focus {
   box-shadow: none;

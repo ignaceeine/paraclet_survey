@@ -1,4 +1,4 @@
-<a href="{{ route('admin.create')  }}">add</a>
+<a href="{{ route('admin.createCampagne')  }}">add</a>
 <table>
     <thead>
     <td>Nom</td>

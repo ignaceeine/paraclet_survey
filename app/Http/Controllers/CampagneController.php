@@ -2,28 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use App\Models\Campagne;
-use Illuminate\Cache\CacheManager;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class AdminController extends Controller
+class CampagneController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.index');
+        $campagnes = Campagne::all();
+        return view('campagne.index',compact('campagnes'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createCampagne()
+    public function create()
     {
-        return view('admin.createCampagne');
+        $campagne = new Campagne();
+        return view('campagne.create',compact('campagne'));
     }
 
     /**
@@ -31,7 +30,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-       $data =$request->validate([
+        $data =$request->validate([
             'nom_campagne' => 'required',
             'date_debut' => 'required',
             'date_fin' => 'required',
@@ -46,8 +45,7 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        $campagne =  Campagne::find($id);
-        return view('admin.show',compact('campagne'));
+        //
     }
 
     /**

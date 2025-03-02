@@ -9,8 +9,7 @@
                 <a href="#" class="text-decoration-none">
                     <div class="card text-center h-100">
                         <div class="card-body d-flex flex-column justify-content-center mb-5 mt-5">
-                            <h5 class="card-title">Questions</h5>
-                            <button class="btn btn-outline-secondary mt-3">Accéder</button>
+                            <h3 class="card-title"><strong>Questions</strong></h3>
                         </div>
                     </div>
                 </a>
@@ -20,8 +19,7 @@
                 <a href="{{ route('admin.campagne') }}" class="text-decoration-none">
                     <div class="card text-center h-100">
                         <div class="card-body d-flex flex-column justify-content-center mb-5 mt-5">
-                            <h5 class="card-title">Campagnes</h5>
-                            <button class="btn btn-outline-secondary mt-3">Accéder</button>
+                            <h3 class="card-title"><strong>Campagnes</strong></h3>
                         </div>
                     </div>
                 </a>
@@ -31,8 +29,7 @@
                 <a href="{{ route('admin.groupe') }}" class="text-decoration-none">
                     <div class="card text-center h-100">
                         <div class="card-body d-flex flex-column justify-content-center mb-5 mt-5">
-                            <h5 class="card-title">Groupes</h5>
-                            <button class="btn btn-outline-secondary mt-3">Accéder</button>
+                            <h3 class="card-title"><strong>Groupes</strong></h3>
                         </div>
                     </div>
                 </a>
@@ -42,8 +39,7 @@
                 <a href="#" class="text-decoration-none">
                     <div class="card text-center h-100">
                         <div class="card-body d-flex flex-column justify-content-center mb-5 mt-5">
-                            <h5 class="card-title">Feedbacks</h5>
-                            <button class="btn btn-outline-secondary mt-3">Accéder</button>
+                            <h3 class="card-title"><strong>Feedbacks</strong></h3>
                         </div>
                     </div>
                 </a>

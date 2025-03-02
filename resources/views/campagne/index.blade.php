@@ -7,7 +7,7 @@
             <a class="btn btn-primary" href="{{ route('campagne.create') }}">Créer Campagne</a>
         </div>
         <div class="table-responsive">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover table-bordered">
                 <thead class="table-secondary">
                 <tr>
                     <th scope="col" class="col-md-4">Nom</th>
@@ -23,10 +23,10 @@
                         <td>{{ $campagne->date_debut }}</td>
                         <td>{{ $campagne->date_fin }}</td>
                         <td>
-                        <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
-                        <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
-                        <a href="{{ route('groupe.create',$campagne->id) }}"><i class="bi bi-people-fill fs-5 text-success"></i></a>
-                    </td>
+                            <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
+                            <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
+                            <a href="{{ route('groupe.create',$campagne->id) }}"><i class="bi bi-people-fill fs-5 text-success"></i></a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

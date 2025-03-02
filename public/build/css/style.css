@@ -322,7 +322,6 @@ footer {
   footer {
     height: auto;
     padding: 0 0 20px 0;
-    position: static;
   }
 }
 footer ul {

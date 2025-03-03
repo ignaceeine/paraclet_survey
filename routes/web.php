@@ -14,11 +14,16 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('admin/campagnes', [CampagneController::class, 'index'])->name('admin.campagne');
 Route::get('admin/campagnes/new', [CampagneController::class, 'create'])->name('campagne.create');
 Route::post('/admin/campagnes/new', [CampagneController::class, 'store'])->name('campagne.store');
+Route::delete('admin/campagnes/delete', [CampagneController::class, 'destroy'])->name('campagne.destroy');
 
 
 Route::get('admin/groupes', [GroupeController::class, 'index'])->name('admin.groupe');
 Route::get('admin/groupes/new/{id}', [GroupeController::class, 'create'])->name('groupe.create');
 Route::post('/admin/groupes/new', [GroupeController::class, 'store'])->name('groupe.store');
+Route::post('admin/groupes/edit', [GroupeController::class, 'update'])->name('groupe.update');
+
+Route::get('admin/groupes/membre/new/{id}', [MembreController::class, 'createMembre'])->name('membre.create');
+Route::post('admin/groupes/membre/new', [MembreController::class, 'storeMembre'])->name('membre.store');
 
 
 

@@ -12,7 +12,7 @@ class CampagneController extends Controller
      */
     public function index()
     {
-        $campagnes = Campagne::all();
+        $campagnes = Campagne::all()->where('is_deleted', false);
         return view('campagne.index',compact('campagnes'));
     }
 
@@ -67,8 +67,13 @@ class CampagneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request['campagne_id'];
+        $campagne = Campagne::findOrFail($id);
+        $campagne->is_deleted = true;
+        $campagne->save();
+
+        return redirect()->route('admin.campagne')->with('message','La campagne a bien été supprimée');
     }
 }

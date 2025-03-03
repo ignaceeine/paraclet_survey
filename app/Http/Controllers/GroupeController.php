@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\MembersImport;
 use App\Models\Campagne;
 use App\Models\Groupe;
+use App\Models\Membre;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -16,7 +17,10 @@ class GroupeController extends Controller
      */
     public function index()
     {
-        $groupes = Groupe::all();
+        $groupes = Groupe::whereHas('campagne', function ($query) {
+            $query->where('is_deleted', false);
+        })->get();
+
         return view('groupe.index', compact('groupes'));
     }
 
@@ -25,9 +29,8 @@ class GroupeController extends Controller
      */
     public function create($id)
     {
-        $campagne = Campagne::find($id);
-        $groupe = new Groupe();
-        return view('groupe.create', compact('campagne', 'groupe'));
+        $campagne = Campagne::with('groupe')->findOrFail($id);
+        return view('groupe.create', compact('campagne'));
     }
 
     /**
@@ -47,6 +50,7 @@ class GroupeController extends Controller
         $id_groupe = Groupe::create($groupe->toArray())->id;
         Excel::import(new MembersImport($id_groupe), $data['membres']);
 
+        return redirect()->route('admin.campagne');
     }
 
     /**
@@ -68,9 +72,19 @@ class GroupeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $data = $request->validate([
+            'groupe_id' => 'required',
+            'campagne_id' => 'required',
+            'membres' => 'required|file|mimes:xlsx,xls'
+        ]);
+
+        $groupe = Groupe::find($data['groupe_id']);
+        Excel::import(new MembersImport($groupe->id), $data['membres']);
+        $groupe->save();
+
+        return redirect()->route('admin.campagne')->with('message','Membres ajoutés avec succès');
     }
 
     /**
@@ -81,9 +95,4 @@ class GroupeController extends Controller
         //
     }
 
-//    private function storeMembers($file,$id)
-//    {
-//        Excel::import(new MembersImport($id), $file);
-//        return redirect()->route('admin.index');
-//    }
 }

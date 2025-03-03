@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Http\Controllers\MembreController;
 use App\Models\Membre;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -29,7 +30,7 @@ class MembersImport implements ToModel
             'prenom' => $row[1],
             'email' => $row[2],
             'groupe_id' => $this->groupeId,
-            'username' => 'username1',
+            'username' => MembreController::generateUsername(),
             'password' => Hash::make('passer123')
         ]);
     }

@@ -12,4 +12,9 @@ class Campagne extends Model
         'date_fin',
     ];
 
+    public function groupe()
+    {
+        return $this->hasOne(Groupe::class);
+    }
+
 }

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Groupe::class)->nullable()->constrained()->OnDelete('cascade');
+        Schema::table('campagnes', function (Blueprint $table) {
+            $table->boolean('is_deleted')->default(false);
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('groupe_id');
+        Schema::table('campagnes', function (Blueprint $table) {
+            //
         });
     }
 };

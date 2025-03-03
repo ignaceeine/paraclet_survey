@@ -2,6 +2,12 @@
 @section('title','Campagnes')
 @section('content')
     <div class="container mt-5">
+        @if(session('message'))
+            <div class="alert alert-success border-0 bg-success mt-2 alert-dismissible fade show">
+                <div class="text-white">{{ session('message') }}</div>
+                <button type="button" class="btn-close text-light" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="text-white mb-0">Liste des Campagnes</h1>
             <a class="btn btn-primary" href="{{ route('campagne.create') }}">Créer Campagne</a>
@@ -24,7 +30,15 @@
                         <td>{{ $campagne->date_fin }}</td>
                         <td>
                             <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
-                            <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
+                            <form action="{{ route('campagne.destroy') }}" method="POST"
+                                  style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <input type="number" name="campagne_id" value="{{ $campagne->id }}" hidden>
+                                <button type="submit" style="background-color: transparent" class="border-0" onclick="return confirm('Confirmez-vous la suppression de cette campagne ?');">
+                                    <i class="bi bi-trash3-fill fs-5 text-danger"></i>
+                                </button>
+                            </form>
                             <a href="{{ route('groupe.create',$campagne->id) }}"><i class="bi bi-people-fill fs-5 text-success"></i></a>
                         </td>
                     </tr>

@@ -15,4 +15,9 @@ class Groupe extends Model
     {
         return $this->belongsTo(Campagne::class);
     }
+
+    public function users()
+    {
+        return $this->hasMany(Membre::class);
+    }
 }

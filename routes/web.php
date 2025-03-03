@@ -5,6 +5,7 @@ use App\Http\Controllers\CampagneController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,6 +25,10 @@ Route::post('admin/groupes/edit', [GroupeController::class, 'update'])->name('gr
 
 Route::get('admin/groupes/membre/new/{id}', [MembreController::class, 'createMembre'])->name('membre.create');
 Route::post('admin/groupes/membre/new', [MembreController::class, 'storeMembre'])->name('membre.store');
+
+Route::get('admin/questions', [QuestionController::class, 'index'])->name('admin.question');
+Route::get('admin/questions/new', [QuestionController::class, 'create'])->name('question.create');
+Route::post('admin/questions/new', [QuestionController::class, 'store'])->name('question.store');
 
 
 

@@ -6,7 +6,7 @@
         <div class="row">
             <!-- Section Questions -->
             <div class="col-md-6 col-lg-3 mb-4">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('admin.question') }}" class="text-decoration-none">
                     <div class="card text-center h-100">
                         <div class="card-body d-flex flex-column justify-content-center mb-5 mt-5">
                             <h3 class="card-title"><strong>Questions</strong></h3>

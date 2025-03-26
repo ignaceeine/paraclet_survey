@@ -13,6 +13,16 @@
             <a class="btn btn-primary" href="{{ route('question.create') }}">Créer Question</a>
         </div>
 
+            <div class="gap-2">
+                @foreach($questions as $quetion)
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            {{ $quetion->libelle }}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
     </div>
 @endsection
 @section('scripts')

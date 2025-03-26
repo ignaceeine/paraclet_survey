@@ -4,6 +4,7 @@
     <div class="d-flex justify-content-center align-items-center mt-5">
         <div class="card col-md-8 bg-white">
             <div class="card-header">
+                <a class="text-black-50" href="{{ route('admin.question') }}"><i class="bi bi-arrow-left"></i></a>
                 <h3>Ajout d'une nouvelle question</h3>
             </div>
             <div class="card-body">

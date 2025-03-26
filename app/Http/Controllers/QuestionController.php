@@ -9,7 +9,8 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        return view('question.index');
+        $questions = Question::all();
+        return view('question.index',compact('questions'));
     }
 
     public function create()
@@ -24,7 +25,6 @@ class QuestionController extends Controller
         $question = new Question();
         $question->libelle = $data['libelle'];
         $question->save();
-
-        return redirect()->route('admin.question');
+        return redirect()->route('question.create');
     }
 }

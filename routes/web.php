@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampagneController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProfileController;
@@ -33,6 +34,8 @@ Route::post('admin/questions/new', [QuestionController::class, 'store'])->name('
 Route::get('admin/questions/edit/{id}', [QuestionController::class, 'edit'])->name('question.edit');
 Route::post('admin/questions/update/{id}', [QuestionController::class, 'update'])->name('question.update');
 Route::get('admin/questions/delete/{id}', [QuestionController::class, 'destroy'])->name('question.destroy');
+
+Route::get('admin/feedbacks', [FeedbackController::class, 'index'])->name('admin.feedback');
 
 
 

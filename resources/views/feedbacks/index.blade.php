@@ -16,37 +16,25 @@
             <table class="table table-striped table-hover">
                 <thead class="table-primary">
                 <tr>
-                    <th scope="col" class="col-md-3">Prénom</th>
-                    <th scope="col" class="col-md-3">Nom</th>
-                    <th scope="col" class="col-md-5">Groupe</th>
+                    <th scope="col" class="col-md-2">Prénom</th>
+                    <th scope="col" class="col-md-2">Nom</th>
+                    <th scope="col" class="col-md-4">Email</th>
+                    <th scope="col" class="col-md-3">Groupe</th>
                     <th scope="col" class="col-md-1">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($membres as $m)
                 <tr>
-                    <td>Moussa</td>
-                    <td>Abakar</td>
-                    <td>Groupe 2</td>
+                    <td>{{ $m->prenom }}</td>
+                    <td>{{ $m->nom }}</td>
+                    <td>{{ $m->email }}</td>
+                    <td>{{ $m->groupe->nom_groupe }}</td>
                     <td class="text-center">
                         <a href="#"><i class="bi bi-eye fs-5 text-primary"></i></a>
                     </td>
                 </tr>
-                <tr>
-                    <td>Ignace</td>
-                    <td>Diatta</td>
-                    <td>Groupe 2</td>
-                    <td class="text-center">
-                        <a href="#"><i class="bi bi-eye fs-5 text-primary"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nouradine</td>
-                    <td>Seid</td>
-                    <td>Groupe 2</td>
-                    <td class="text-center">
-                        <a href="#"><i class="bi bi-eye fs-5 text-primary"></i></a>
-                    </td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

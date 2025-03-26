@@ -30,6 +30,9 @@ Route::post('admin/groupes/membre/new', [MembreController::class, 'storeMembre']
 Route::get('admin/questions', [QuestionController::class, 'index'])->name('admin.question');
 Route::get('admin/questions/new', [QuestionController::class, 'create'])->name('question.create');
 Route::post('admin/questions/new', [QuestionController::class, 'store'])->name('question.store');
+Route::get('admin/questions/edit/{id}', [QuestionController::class, 'edit'])->name('question.edit');
+Route::post('admin/questions/update/{id}', [QuestionController::class, 'update'])->name('question.update');
+Route::get('admin/questions/delete/{id}', [QuestionController::class, 'destroy'])->name('question.destroy');
 
 
 

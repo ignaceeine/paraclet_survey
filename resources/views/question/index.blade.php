@@ -13,16 +13,23 @@
             <a class="btn btn-primary" href="{{ route('question.create') }}">Créer Question</a>
         </div>
 
-            <div class="gap-2">
+            <div class="mb-3">
                 @foreach($questions as $quetion)
                     <div class="card mb-3">
-                        <div class="card-body">
-                            {{ $quetion->libelle }}
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div class="col-10">
+                                {{ $quetion->libelle }}
+                            </div>
+                           <div class="col-end-1">
+                               <a href="{{ route('question.edit',$quetion->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
+                               <a href="{{ route('question.destroy', $quetion->id) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette question ?');">
+                                   <i class="bi bi-trash fs-5 text-danger"></i>
+                               </a>
+                           </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-
     </div>
 @endsection
 @section('scripts')

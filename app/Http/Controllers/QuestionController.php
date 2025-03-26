@@ -25,6 +25,28 @@ class QuestionController extends Controller
         $question = new Question();
         $question->libelle = $data['libelle'];
         $question->save();
-        return redirect()->route('question.create');
+        return redirect()->route('question.create')->with('message', "enregistrer avec success");
     }
+
+    public function edit($id)
+    {
+        $question = Question::find($id);
+        return view('question.edit', compact('question'));
+    }
+    public function update($id, Request $request)
+    {
+        $data = $request->validate(['libelle' => 'required|string']);
+
+        $question = Question::find($id);
+        $question->libelle = $data['libelle'];
+        $question->save();
+        return redirect()->route('admin.question', $id)->with('message', "modification avec success");
+    }
+    public function destroy($id)
+    {
+        $question = Question::find($id);
+        $question->delete();
+        return redirect()->route('admin.question');
+    }
+
 }

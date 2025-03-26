@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Questions')
+@section('title','Feedbacks')
 @section('content')
     <div class="container mt-5">
         @if(session('message'))

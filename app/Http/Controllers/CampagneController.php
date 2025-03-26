@@ -53,7 +53,8 @@ class CampagneController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $campagne = Campagne::find($id);
+        return view('campagne.edit',compact('campagne'));
     }
 
     /**
@@ -61,7 +62,14 @@ class CampagneController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'nom_campagne' =>'required',
+            'date_debut' =>'required',
+            'date_fin' =>'required',
+        ]);
+        $campagne = Campagne::find($id);
+        $campagne->update($data);
+        return redirect()->route('admin.campagne')->with('message','La campagne a bien été modifiée');
     }
 
     /**

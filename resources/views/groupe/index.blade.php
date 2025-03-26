@@ -8,7 +8,9 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
-    <a class="text-white" href="{{ route('admin.index') }}"><i class="bi bi-arrow-left"></i></a>
+        <a class="text-white" href="{{ route('admin.index') }}">
+            <i class="bi bi-arrow-left" style="font-size: 28px"></i>
+        </a>
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="text-white mb-0">Liste des Groupes</h1>
     </div>
@@ -27,7 +29,7 @@
                     <td>{{ $groupe->nom_groupe }}</td>
                     <td>{{ $groupe->campagne->nom_campagne }}</td>
                     <td>
-                        <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
+                        <a href="{{ route('groupe.edit',$groupe->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
                         <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
                         <a type="button" href="{{ route('groupe.show',$groupe->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye fs-5 text-primary"></i></a>
                         <a href="{{ route('membre.create',$groupe->id) }}"><i class="bi bi-person-add fs-5 text-success"></i></a>

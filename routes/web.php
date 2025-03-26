@@ -22,6 +22,7 @@ Route::get('admin/groupes', [GroupeController::class, 'index'])->name('admin.gro
 Route::get('admin/groupes/new/{id}', [GroupeController::class, 'create'])->name('groupe.create');
 Route::post('/admin/groupes/new', [GroupeController::class, 'store'])->name('groupe.store');
 Route::post('admin/groupes/edit', [GroupeController::class, 'update'])->name('groupe.update');
+Route::get('admin/groupes/show/{id}', [GroupeController::class, 'show'])->name('groupe.show');
 
 Route::get('admin/groupes/membre/new/{id}', [MembreController::class, 'createMembre'])->name('membre.create');
 Route::post('admin/groupes/membre/new', [MembreController::class, 'storeMembre'])->name('membre.store');

@@ -58,7 +58,9 @@ class GroupeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $groupe =  Groupe::find($id);
+        $membres = $groupe->membres;
+        return view('groupe.index',compact('groupe', 'membres'));
     }
 
     /**

@@ -8,6 +8,7 @@
                 <button type="button" class="btn-close text-light" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        <a class="text-white" href="{{ route('admin.index') }}"><i class="bi bi-arrow-left"></i></a>
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="text-white mb-0">Liste des Campagnes</h1>
             <a class="btn btn-primary" href="{{ route('campagne.create') }}">Créer Campagne</a>

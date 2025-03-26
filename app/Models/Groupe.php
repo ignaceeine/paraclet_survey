@@ -20,4 +20,10 @@ class Groupe extends Model
     {
         return $this->hasMany(Membre::class);
     }
+
+    public function membres()
+    {
+        return $this->hasMany(Membre::class);
+    }
+
 }

@@ -4,10 +4,9 @@
     <div class="d-flex justify-content-center align-items-center mt-5">
         <div class="card col-md-8 bg-light">
             <div class="card-header">
-
             </div>
             <div class="card-body">
-                <form action="{{route('groupe.update-name',$groupe->id) }}" method="POST">
+                <form action="{{ route('groupe.updatename',$groupe->id) }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="nom_groupe" class="form-label">Nom du groupe</label>

@@ -93,15 +93,13 @@ class GroupeController extends Controller
     public function updatename(Request $request,$id)
     {
         $data = $request->validate([
-            'groupe_id' =>'required',
             'nom_groupe' =>'required'
         ]);
-
         $groupe = Groupe::find($id);
         $groupe->nom_groupe = $data['nom_groupe'];
         $groupe->save();
 
-        return redirect()->route('admin.groupe', $groupe->id)->with('message','Nom du groupe modifié avec succès');
+        return redirect()->route('admin.groupe')->with('message','Nom du groupe modifié avec succès');
     }
 
     /**

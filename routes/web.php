@@ -26,8 +26,8 @@ Route::get('admin/groupes/new/{id}', [GroupeController::class, 'create'])->name(
 Route::post('/admin/groupes/new', [GroupeController::class, 'store'])->name('groupe.store');
 Route::delete('admin/groupes/delete', [GroupeController::class, 'destroy'])->name('groupe.destroy');
 Route::get('admin/groupes/edit/{id}', [GroupeController::class, 'edit'])->name('groupe.edit');
-Route::post('admin/groupes/update/{id}', [GroupeController::class, 'update'])->name('groupe.update');
-Route::post('admin/groupes/update/{id}', [GroupeController::class, 'updatename'])->name('groupe.update-name');
+Route::post('admin/groupes/update', [GroupeController::class, 'update'])->name('groupe.update');
+Route::post('admin/groupes/update/{id}', [GroupeController::class, 'updatename'])->name('groupe.updatename');
 Route::get('admin/groupes/show/{id}', [GroupeController::class, 'show'])->name('groupe.show');
 
 Route::get('admin/groupes/membre/new/{id}', [MembreController::class, 'createMembre'])->name('membre.create');

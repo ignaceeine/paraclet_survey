@@ -24,61 +24,59 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($groupes as $groupe)
-                <tr>
-                    <td>{{ $groupe->nom_groupe }}</td>
-                    <td>{{ $groupe->campagne->nom_campagne }}</td>
-                    <td>
-                        <a href="{{ route('groupe.edit',$groupe->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
-                        <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
-                        <a type="button" href="{{ route('groupe.show',$groupe->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye fs-5 text-primary"></i></a>
-                        <a href="{{ route('membre.create',$groupe->id) }}"><i class="bi bi-person-add fs-5 text-success"></i></a>
-                    </td>
-                </tr>
-                @endforeach
+                @if($groupes)
+                    @foreach($groupes as $groupe)
+                        <tr>
+                            <td>{{ $groupe->nom_groupe }}</td>
+                            <td>{{ $groupe->campagne->nom_campagne }}</td>
+                            <td>
+                                <a href="{{ route('groupe.edit',$groupe->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
+                                <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
+                                <a type="button" href="{{ route('groupe.show',$groupe->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye fs-5 text-primary"></i></a>
+                                <a href="{{ route('membre.create',$groupe->id) }}"><i class="bi bi-person-add fs-5 text-success"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
             </tbody>
         </table>
     </div>
 </div>
-@endsection
-@section('scripts')
-<script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
-<script src="{{ URL::asset('build/js/common_scripts.min.js') }}"></script>
-<script src="{{ URL::asset('build/js/functions.js') }}"></script>
-<script src="{{ URL::asset('build/js/survey_func.js') }}"></script>
-@endsection
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $groupe->nom_groupe }}</h1>
+                <h5 class="modal-title" id="exampleModalLabel">Liste des Membres du Groupe @isset($groupe->nom_groupe) {{$groupe->nom_groupe}} @endisset</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <table class="table caption-top">
                     <caption>Listes de Membres</caption>
                     <thead>
-                        <tr>
-                            <th scope="col">#CD</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Prenom</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Action</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">#CD</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach($groupe->membres as $index => $membre)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{$membre->nom }}</td>
-                                <td>{{$membre->prenom }}</td>
-                                <td>{{$membre->email }}</td>
-                                <td>
-                                    <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
-                                    <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
+                        @if(isset($groupe))
+                            @foreach($groupe->membres as $index => $membre)
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{$membre->nom }}</td>
+                                    <td>{{$membre->prenom }}</td>
+                                    <td>{{$membre->email }}</td>
+                                    <td>
+                                        <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
+                                        <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -88,3 +86,11 @@
         </div>
     </div>
 </div>
+
+@endsection
+@section('scripts')
+<script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ URL::asset('build/js/common_scripts.min.js') }}"></script>
+<script src="{{ URL::asset('build/js/functions.js') }}"></script>
+<script src="{{ URL::asset('build/js/survey_func.js') }}"></script>
+@endsection

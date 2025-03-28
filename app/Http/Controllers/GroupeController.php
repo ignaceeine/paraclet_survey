@@ -107,7 +107,14 @@ class GroupeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $groupe = Groupe::find($id);
+        $membres = $groupe->membres;
+        foreach ($membres as $membre) {
+            $membre->groupe_id = null;
+            $membre->delete();
+        }
+        $groupe->delete();
+        return redirect()->route('admin.groupe')->with('message','Groupe supprimé avec succès');
     }
 
 }

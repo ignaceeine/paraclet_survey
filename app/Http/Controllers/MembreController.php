@@ -65,9 +65,11 @@ class MembreController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyMembre($id)
     {
-        //
+        $membre = Membre::find($id);
+        $membre->delete();
+        return redirect()->route('admin.groupe')->with('message','Membre supprimé avec succès');
     }
 
     public function storeMembre(Request $request)

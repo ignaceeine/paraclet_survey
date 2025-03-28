@@ -6,6 +6,7 @@ use App\Imports\MembersImport;
 use App\Models\Campagne;
 use App\Models\Groupe;
 use App\Models\Membre;
+use App\Models\Question;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,8 @@ class MembreController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::all();
+        return view('index', compact('questions'));
     }
 
     /**

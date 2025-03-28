@@ -8,7 +8,9 @@
                 <button type="button" class="btn-close text-light" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <a class="text-white" href="{{ route('admin.index') }}"><i class="bi bi-arrow-left"></i></a>
+            <a class="text-white" href="{{ route('admin.index') }}">
+                <i class="bi bi-arrow-left" style="font-size: 28px"></i>
+            </a>
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="text-white mb-0">Liste des Campagnes</h1>
             <a class="btn btn-primary" href="{{ route('campagne.create') }}">Créer Campagne</a>
@@ -30,7 +32,7 @@
                         <td>{{ $campagne->date_debut }}</td>
                         <td>{{ $campagne->date_fin }}</td>
                         <td>
-                            <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
+                            <a href="{{ route('campagne.edit',$campagne->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
                             <form action="{{ route('campagne.destroy') }}" method="POST"
                                   style="display:inline;">
                                 @csrf

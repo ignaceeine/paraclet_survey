@@ -25,7 +25,7 @@ class QuestionController extends Controller
         $question = new Question();
         $question->libelle = $data['libelle'];
         $question->save();
-        return redirect()->route('question.create')->with('message', "enregistrer avec success");
+        return redirect()->route('admin.question')->with('message', "Question créée avec succès");
     }
 
     public function edit($id)

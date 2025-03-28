@@ -84,7 +84,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <input type="number" name="id" value="{{ $membre->id }}" hidden>
-                                            <button type="submit" style="background-color: transparent" class="border-0" onclick="return confirm('Confirmez-vous la suppression de cette personne ?');">
+                                            <button type="submit" style="background-color: transparent" class="border-0" onclick="return confirm('Confirmez-vous la suppression de ce groupe ?');">
                                                 <i class="bi bi-trash3-fill fs-5 text-danger"></i>
                                             </button>
                                         </form>

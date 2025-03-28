@@ -10,7 +10,7 @@
     <div class="d-flex justify-content-center align-items-center mt-5">
         <div class="card col-md-8 bg-white">
             <div class="card-header">
-                <a class="text-white" href="{{ route('admin.index') }}">
+                <a class="text-black" href="{{ route('admin.question') }}">
                     <i class="bi bi-arrow-left" style="font-size: 28px"></i>
                 </a>
                 <h3>Ajout d'une nouvelle question</h3>

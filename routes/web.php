@@ -47,9 +47,7 @@ Route::get('admin/feedbacks', [FeedbackController::class, 'index'])->name('admin
 Route::post('/admin/excel', [MembreController::class, 'store'])->name('members.store');
 
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [MembreController::class, 'index'])->name('index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

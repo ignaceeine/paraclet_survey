@@ -55,47 +55,8 @@
 		});
 	});
 
-// Summary 
+// Summary
 function getVals(formControl, controlType) {
-	switch (controlType) {
-
-		case 'question_1':
-			// Get the value for a radio
-			var value = $(formControl).val();
-			$("#question_1").text(value);
-			break;
-
-		case 'additional_message':
-			// Get the value for a textarea
-			var value = $(formControl).val();
-			$("#additional_message").text(value);
-			break;
-
-		case 'question_2':
-			// Get the value for a radio
-			var value = $(formControl).val();
-			$("#question_2").text(value);
-			break;
-
-		case 'additional_message_2':
-			// Get the value for a textarea
-			var value = $(formControl).val();
-			$("#additional_message_2").text(value);
-			break;
-
-		case 'question_3':
-			// Get name for set of checkboxes
-			var checkboxName = $(formControl).attr('name');
-
-			// Get all checked checkboxes
-			var value = [];
-			$("input[name*='" + checkboxName + "']").each(function () {
-				// Get all checked checboxes in an array
-				if (jQuery(this).is(":checked")) {
-					value.push($(this).val());
-				}
-			});
-			$("#question_3").text(value.join(", "));
-			break;
-	}
+    var value = $(formControl).val();
+    $("#" + controlType).text(value);
 }

@@ -11,22 +11,26 @@
                         <li>
                             @if(Auth::user())
                                 <div class="dropdown">
-                                    <button class="btn btn-circle bg-primary-subtle dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-person-circle text-primary fs-4"></i>
+                                    <button class="btn btn-light border-0 rounded-circle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #9fccff;">
+                                        <i class="bi bi-person-circle text-primary" style="font-size: 1.75rem;"></i>
                                     </button>
-                                    <ul class="dropdown-menu bg-primary-subtle" aria-labelledby="userDropdown">
-                                        <li class="text-primary ms-3">{{ Auth::user()->prenom }}</li>
+                                    <ul class="dropdown-menu shadow-sm" aria-labelledby="userDropdown" style="min-width: 200px; border-radius: 5px;">
+                                        <li class="ps-4 py-2" style="color: #001659;font-family: 'Roboto', sans-serif; font-weight: 500;">{{ Auth::user()->prenom }} {{ Auth::user()->nom }}</li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li class="bg-danger w-100">
+                                        <li class="w-100">
                                             <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <a class="dropdown-item bg-danger" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">Déconnexion</a>
+                                                @csrf
+                                                <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
+                                                    <i class="bi bi-power"></i> Déconnexion
+                                                </a>
                                             </form>
                                         </li>
                                     </ul>
                                 </div>
                             @else
-                                <a href="{{ route('login') }}" class="btn btn-primary bg-primary-subtle text-primary border-0">Se Connecter</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary text-white border-0" style="background-color: #001659; border-radius: 10px; padding: 0.5rem 1.5rem; font-family: 'Roboto', sans-serif; font-weight: 500;">
+                                    Se Connecter
+                                </a>
                             @endif
                         </li>
                     </ul>
@@ -37,52 +41,4 @@
     </div>
     <!-- /container -->
 </header>
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color:#022d68;">
-                <h5 class="modal-title" style="color: #fff;"  id="exampleModalLabel">Profil</h5>
-                <button type="button" class="btn-close" style="color: #fff !important;" data-bs-dismiss="modal" aria-label="Close" >
-                </button>
-            </div>
-            <div class="modal-body" style="color: black;">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                sequi quaerat saepe odit laudantium, repellendus dolorem corporis lab
-                orum dolores optio sed consequuntur
-                reprehenderit nobis maiores et doloribus debitis deserunt magnam.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- /header -->

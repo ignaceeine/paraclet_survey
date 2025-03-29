@@ -7,12 +7,6 @@
     <title>@yield('title') | Paraclet-survey</title>
     <!-- Favicons-->
     <link rel="shortcut icon" href="{{ URL::asset('img/logo-paraclet.png') }}" type="image">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{ URL::asset('img/apple-touch-icon-57x57-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ URL::asset('img/apple-touch-icon-72x72-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
-          href="{{ URL::asset('img/apple-touch-icon-114x114-precomposed.png') }}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
-          href="{{ URL::asset('img/apple-touch-icon-144x144-precomposed.png') }}">
     @yield('css')
     @include('layouts.head-css')
 </head>

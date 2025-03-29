@@ -290,6 +290,8 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -310,13 +312,13 @@ footer {
     color: #001659;
     width: 100%;
     padding: 0 10px;
-    height: 55px;
+    min-height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    clear: both;
     font-size: 14px;
     font-weight: 500;
+    margin-top: auto;
 }
 @media (max-width: 767px) {
   footer {
@@ -348,9 +350,6 @@ footer ul li:after {
 }
 footer ul li:last-child {
   margin-right: 0;
-}
-footer ul li:last-child:after {
-  content: "";
 }
 footer ul li a {
   color: #fff;
@@ -811,15 +810,25 @@ span.error:after {
   font-size: 14px;
   font-size: 0.875rem;
   height: calc(2.85rem + 2px);
-  color: #fff;
+  color: #022d68;
   font-weight: 500;
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
 }
 .form-control:focus {
   box-shadow: none;
   border: none;
-  color: #fff;
+  color: #022d68;
+  background-color: #fff;
+}
+
+textarea.form-control {
   background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+textarea.form-control:focus {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
 }
 
 .review_message {
@@ -1356,35 +1365,35 @@ span.error:after {
   font-size: 14px;
   line-height: 1.4;
   border-radius: 3px;
-  border: 1px solid none;
-  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #ddd;
+  background-color: #fff;
   box-sizing: border-box;
   transition: all 0.5s ease-in-out;
   margin-bottom: 0;
+  color: #022d68;
 }
 .fl-form input.fl-input:-moz-placeholder,
 .fl-form select.fl-select:-moz-placeholder,
 .fl-form textarea.fl-textarea:-moz-placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: #999;
   font-weight: 500;
 }
 .fl-form input.fl-input::-moz-placeholder,
 .fl-form select.fl-select::-moz-placeholder,
 .fl-form textarea.fl-textarea::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: #999;
   font-weight: 500;
 }
 .fl-form input.fl-input:-ms-input-placeholder,
 .fl-form select.fl-select:-ms-input-placeholder,
 .fl-form textarea.fl-textarea:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: #999;
   font-weight: 500;
-  color: #FFF !important;
 }
 .fl-form input.fl-input::-webkit-input-placeholder,
 .fl-form select.fl-select::-webkit-input-placeholder,
 .fl-form textarea.fl-textarea::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: #999;
   font-weight: 500;
 }
 
@@ -1402,16 +1411,16 @@ span.error:after {
 .fl-form .fl-is-active input.fl-input,
 .fl-form .fl-is-active select.fl-select,
 .fl-form .fl-is-active textarea.fl-textarea {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-color: none;
+  color: #022d68;
+  background-color: #fff;
+  border-color: #ddd;
 }
 
 .fl-form .fl-has-focus input.fl-input,
 .fl-form .fl-has-focus select.fl-select,
 .fl-form .fl-has-focus textarea.fl-textarea {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-color: none;
+  background-color: #fff;
+  border-color: #ddd;
 }
 
 .fl-form label.fl-label {
@@ -1555,5 +1564,23 @@ body[dir=rtl] .fl-form.fl-style-2 label.fl-label {
 body[dir=rtl] .fl-form .fl-wrap-select:after {
   right: unset;
   left: 6px;
+}
+
+.fl-form textarea.fl-textarea {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+}
+
+.fl-form .fl-is-active textarea.fl-textarea {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+}
+
+.fl-form .fl-has-focus textarea.fl-textarea {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
 }
 

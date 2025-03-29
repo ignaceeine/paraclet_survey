@@ -22,9 +22,7 @@ class QuestionController extends Controller
     {
         $data = $request->validate(['libelle' => 'required|string']);
 
-        $question = new Question();
-        $question->libelle = $data['libelle'];
-        $question->save();
+        Question::create($data);
         return redirect()->route('admin.question')->with('message', "Question créée avec succès");
     }
 
@@ -38,15 +36,14 @@ class QuestionController extends Controller
         $data = $request->validate(['libelle' => 'required|string']);
 
         $question = Question::find($id);
-        $question->libelle = $data['libelle'];
-        $question->save();
-        return redirect()->route('admin.question', $id)->with('message', "modification avec success");
+        $question->update($data);
+        return redirect()->route('admin.question', $id)->with('message', "Question modifiée avec succès");
     }
     public function destroy($id)
     {
         $question = Question::find($id);
-        $question->delete();
-        return redirect()->route('admin.question');
+        Question::destroy($question->id);
+        return redirect()->route('admin.question')->with('message', 'Question supprimée avec succès');
     }
 
 }

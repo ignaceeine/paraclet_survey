@@ -26,7 +26,7 @@
                                     </ul>
                                 </div>
                             @else
-                                <a href="{{ route('login') }}" class="btn btn-primary bg-primary-subtle text-primary border-0">connexion</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary bg-primary-subtle text-primary border-0">Se Connecter</a>
                             @endif
                         </li>
                     </ul>

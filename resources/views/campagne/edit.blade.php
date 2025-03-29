@@ -33,8 +33,8 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ URL::asset('build/js/common_scripts.min.js') }}"></script>
-    <script src="{{ URL::asset('build/js/functions.js') }}"></script>
-    <script src="{{ URL::asset('build/js/survey_func.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ URL::asset('js/common_scripts.min.js') }}"></script>
+    <script src="{{ URL::asset('js/functions.js') }}"></script>
+    <script src="{{ URL::asset('js/survey_func.js') }}"></script>
 @endsection

@@ -31,7 +31,15 @@
                             <td>{{ $groupe->campagne->nom_campagne }}</td>
                             <td>
                                 <a href="{{ route('groupe.edit',$groupe->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
-                                <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
+                                <form action="{{ route('groupe.destroy',$groupe->id) }}" method="POST"
+                                      style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="number" name="id" value="{{ $groupe->id }}" hidden>
+                                    <button type="submit" style="background-color: transparent" class="border-0" onclick="return confirm('Confirmez-vous la suppression de cette personne ?');">
+                                        <i class="bi bi-trash3-fill fs-5 text-danger"></i>
+                                    </button>
+                                </form>
                                 <a type="button" href="{{ route('groupe.show',$groupe->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye fs-5 text-primary"></i></a>
                                 <a href="{{ route('membre.create',$groupe->id) }}"><i class="bi bi-person-add fs-5 text-success"></i></a>
                             </td>
@@ -66,13 +74,20 @@
                         @if(isset($groupe))
                             @foreach($groupe->membres as $index => $membre)
                                 <tr>
-                                    <td>{{ $index + 1 }}</td>
+                                    <td>PRCL-CPG{{ $index + 1 }}</td>
                                     <td>{{$membre->nom }}</td>
                                     <td>{{$membre->prenom }}</td>
                                     <td>{{$membre->email }}</td>
                                     <td>
-                                        <a href="#"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
-                                        <a href="#"><i class="bi bi-trash3-fill fs-5 text-danger"></i></a>
+                                        <form action="{{ route('membre.destroy',$membre->id) }}" method="POST"
+                                              style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="number" name="id" value="{{ $membre->id }}" hidden>
+                                            <button type="submit" style="background-color: transparent" class="border-0" onclick="return confirm('Confirmez-vous la suppression de ce groupe ?');">
+                                                <i class="bi bi-trash3-fill fs-5 text-danger"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -89,8 +104,8 @@
 
 @endsection
 @section('scripts')
-<script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
-<script src="{{ URL::asset('build/js/common_scripts.min.js') }}"></script>
-<script src="{{ URL::asset('build/js/functions.js') }}"></script>
-<script src="{{ URL::asset('build/js/survey_func.js') }}"></script>
+<script src="{{ URL::asset('js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ URL::asset('js/common_scripts.min.js') }}"></script>
+<script src="{{ URL::asset('js/functions.js') }}"></script>
+<script src="{{ URL::asset('js/survey_func.js') }}"></script>
 @endsection

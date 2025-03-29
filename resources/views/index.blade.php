@@ -7,7 +7,7 @@
                 <div class="row justify-content-between">
                     <div class="col-xl-6 col-lg-6 d-flex align-items-center">
                         <div class="main_title_1">
-                            <h3><img src="{{ URL::asset('build/img/main_icon_1.svg') }}" width="50" height="50" alt="">
+                            <h3><img src="{{ URL::asset('img/main_icon_1.svg') }}" width="50" height="50" alt="">
                                 Formulaire d'enquête</h3>
                             <p>Donnez votre avis sur le participants en répondants aux questions suivantes</p>
                             <p><em>- l'équipe Paraclet</em></p>
@@ -79,8 +79,8 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ URL::asset('build/js/common_scripts.min.js') }}"></script>
-    <script src="{{ URL::asset('build/js/functions.js') }}"></script>
-    <script src="{{ URL::asset('build/js/survey_func.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ URL::asset('js/common_scripts.min.js') }}"></script>
+    <script src="{{ URL::asset('js/functions.js') }}"></script>
+    <script src="{{ URL::asset('js/survey_func.js') }}"></script>
 @endsection

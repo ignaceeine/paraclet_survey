@@ -306,20 +306,17 @@ header {
 }
 
 footer {
-  background-color: #ffffff;
-  color: #001659;
-  width: 100%;
-  padding: 0 10px;
-  height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  clear: both;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-  font-size: 14px;
-  font-weight: 500;
+    background-color: #ffffff;
+    color: #001659;
+    width: 100%;
+    padding: 0 10px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clear: both;
+    font-size: 14px;
+    font-weight: 500;
 }
 @media (max-width: 767px) {
   footer {
@@ -1559,3 +1556,4 @@ body[dir=rtl] .fl-form .fl-wrap-select:after {
   right: unset;
   left: 6px;
 }
+

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-
+Route::get('/membre', [MembreController::class, 'index'])->name('membre.index');
 
 Route::get('admin/campagnes', [CampagneController::class, 'index'])->name('admin.campagne');
 Route::get('admin/campagnes/new', [CampagneController::class, 'create'])->name('campagne.create');
@@ -44,13 +44,15 @@ Route::post('admin/questions/update/{id}', [QuestionController::class, 'update']
 Route::get('admin/questions/delete/{id}', [QuestionController::class, 'destroy'])->name('question.destroy');
 
 Route::get('admin/feedbacks', [FeedbackController::class, 'index'])->name('admin.feedback');
-
+Route::get('membre/feedbacks/new', [FeedbackController::class, 'create'])->name('feedback.create');
 
 
 Route::post('/admin/excel', [MembreController::class, 'store'])->name('members.store');
 
 
-Route::get('/', [MembreController::class, 'index'])->name('index');
+Route::get('/', function (){
+    return view('index');
+})->name('index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

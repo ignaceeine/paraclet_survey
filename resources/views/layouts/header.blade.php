@@ -11,16 +11,26 @@
                         <li>
                             @if(Auth::user())
                                 <div class="dropdown">
-                                    <button class="btn btn-light border-0 rounded-circle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #9fccff;">
-                                        <i class="bi bi-person-circle text-primary" style="font-size: 1.75rem;"></i>
+                                    <button class="btn btn-light border-0 rounded-circle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #001659;">
+                                        <i class="bi bi-person-circle text-white" style="font-size: 1.75rem"></i>
                                     </button>
                                     <ul class="dropdown-menu shadow-sm" aria-labelledby="userDropdown" style="min-width: 200px; border-radius: 5px;">
                                         <li class="ps-4 py-2" style="color: #001659;font-family: 'Roboto', sans-serif; font-weight: 500;">{{ Auth::user()->prenom }} {{ Auth::user()->nom }}</li>
-                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="w-100">
+                                            @if(Auth::user()->role == 'admin')
+                                                <a class="dropdown-item text-start" href="{{ route('admin.index') }}" style="color: #001659; font-weight: 400">
+                                                    <i class="bi bi-speedometer2"></i> Tableau de bord
+                                                </a>
+                                            @else
+                                                <a class="dropdown-item text-start" href="{{ route('membre.index') }}" style="color: #001659; font-weight: 400">
+                                                    <i class="bi bi-speedometer2"></i> Tableau de bord
+                                                </a>
+                                            @endif
+                                        </li>
                                         <li class="w-100">
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
-                                                <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
+                                                <a class="dropdown-item text-danger text-start" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
                                                     <i class="bi bi-power"></i> Déconnexion
                                                 </a>
                                             </form>

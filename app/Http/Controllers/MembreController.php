@@ -19,8 +19,7 @@ class MembreController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
-        return view('index', compact('questions'));
+        return view('membre.index');
     }
 
     /**

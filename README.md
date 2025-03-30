@@ -27,7 +27,7 @@ L’application est la propriété exclusive de **Paraclet** et ne peut être ut
 
 ## Contributing
 
-Nous apprécions votre intérêt pour Paraclet Survey ! Si vous souhaitez contribuer au développement ou signaler des améliorations, veuillez nous contacter directement à [contact@paraclet.com](mailto:contact@paraclet.com). Nous examinerons toutes les suggestions et contributions potentielles.
+Nous apprécions votre intérêt pour Paraclet Survey ! Si vous souhaitez contribuer au développement ou signaler des améliorations, veuillez nous contacter directement à [contact@paraclet.sn](mailto:contact@paraclet.sn). Nous examinerons toutes les suggestions et contributions potentielles.
 
 ## Code of Conduct
 
@@ -35,8 +35,8 @@ Pour assurer un environnement accueillant et respectueux, nous suivons le [Code 
 
 ## Security Vulnerabilities
 
-Si vous découvrez une vulnérabilité de sécurité dans Paraclet Survey, veuillez nous contacter immédiatement à [security@paraclet.com](mailto:security@paraclet.com). Toutes les vulnérabilités seront traitées rapidement et confidentiellement.
+Si vous découvrez une vulnérabilité de sécurité dans Paraclet Survey, veuillez nous contacter immédiatement à [security@paraclet.sn](mailto:security@paraclet.sn). Toutes les vulnérabilités seront traitées rapidement et confidentiellement.
 
 ## License
 
-Paraclet Survey est une application propriétaire développée par Paraclet. Toute reproduction ou distribution non autorisée est strictement interdite. Pour plus d’informations sur les droits d’utilisation, veuillez contacter [legal@paraclet.com](mailto:legal@paraclet.com).
+Paraclet Survey est une application propriétaire développée par Paraclet. Toute reproduction ou distribution non autorisée est strictement interdite. Pour plus d’informations sur les droits d’utilisation, veuillez contacter [legal@paraclet.sn](mailto:legal@paraclet.sn).

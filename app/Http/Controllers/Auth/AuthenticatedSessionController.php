@@ -37,7 +37,12 @@ class AuthenticatedSessionController extends Controller
             'date' => now()->toDateTimeString()
         ]);
 
-        return redirect()->intended(route('admin.index', absolute: false));
+        if ($user->role == 'membre') {
+            return redirect()->intended(route('membre.index', absolute: false));
+        }else{
+            return redirect()->intended(route('admin.index', absolute: false));
+        }
+
     }
 
     /**

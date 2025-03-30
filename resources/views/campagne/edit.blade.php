@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title','Modification Campagne')
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <a class="text-white" href="{{ route('admin.campagne') }}">
             <i class="bi bi-arrow-left" style="font-size: 28px"></i>
         </a>

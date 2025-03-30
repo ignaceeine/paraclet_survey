@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Admin Dashboard')
+@section('title','Admin')
 @section('content')
     <div class="container mt-5">
         <h1 class="text-center mb-5 text-white">Dashboard Administrateur</h1>

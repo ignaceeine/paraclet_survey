@@ -16,7 +16,7 @@
     </div>
     <div class="table-responsive">
         <table class="table table-striped table-hover">
-            <thead class="table-primary">
+            <thead class="table-secondary">
                 <tr>
                     <th scope="col" class="col-md-5">Nom du groupe</th>
                     <th scope="col" class="col-md-5">Nom de la campagne</th>
@@ -60,10 +60,8 @@
             </div>
             <div class="modal-body">
                 <table class="table caption-top">
-                    <caption>Listes de Membres</caption>
                     <thead>
                     <tr>
-                        <th scope="col">#CD</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Prenom</th>
                         <th scope="col">Email</th>
@@ -74,7 +72,6 @@
                         @if(isset($groupe))
                             @foreach($groupe->membres as $index => $membre)
                                 <tr>
-                                    <td>PRCL-CPG{{ $index + 1 }}</td>
                                     <td>{{$membre->nom }}</td>
                                     <td>{{$membre->prenom }}</td>
                                     <td>{{$membre->email }}</td>

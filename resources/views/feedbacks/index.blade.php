@@ -14,7 +14,7 @@
         <input type="text" id="searchInput" placeholder="Rechercher..." class="form-control mb-3">
         <div class="table-responsive">
             <table class="table table-striped table-hover">
-                <thead class="table-primary">
+                <thead class="table-secondary">
                 <tr>
                     <th scope="col" class="col-md-2">Prénom</th>
                     <th scope="col" class="col-md-2">Nom</th>

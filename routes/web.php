@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
     Route::get('admin/campagnes', [CampagneController::class, 'index'])->name('admin.campagne');
@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/excel', [MembreController::class, 'store'])->name('members.store');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','membre'])->group(function () {
     Route::get('/membre', [MembreController::class, 'index'])->name('membre.index');
 
     Route::get('membre/feedbacks/new', [FeedbackController::class, 'create'])->name('feedback.create');

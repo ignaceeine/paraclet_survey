@@ -7,60 +7,43 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About Paraclet Survey
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Paraclet Survey est une application web puissante et intuitive, développée avec le framework Laravel, conçue pour permettre aux utilisateurs de répondre à une série de questions dans un formulaire structuré. Elle offre une expérience utilisateur fluide et efficace, avec des fonctionnalités telles que :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Une interface conviviale pour naviguer et répondre aux questionnaires.
+- Une gestion dynamique des formulaires pour une collecte de données organisée.
+- Une sécurité robuste pour protéger les informations des utilisateurs.
+- Des outils d’administration pour surveiller et gérer les réponses.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Paraclet Survey est accessible, flexible et idéale pour les organisations ou individus souhaitant recueillir des feedbacks ou des données via des enquêtes personnalisées.
 
-## Learning Laravel
+## Learning Paraclet Survey
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Pour en savoir plus sur l’utilisation et le développement de Paraclet Survey, consultez notre [documentation](https://paraclet-survey.com/docs) ou contactez notre équipe pour un support technique. Vous pouvez également explorer les ressources Laravel, car notre application est construite sur ce framework robuste.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Developers
 
-## Laravel Sponsors
+Paraclet Survey a été développée par :
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Moussa Abakar Hassan**
+- **Ignace Eine Diatta**
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+L’application est la propriété exclusive de **Paraclet** et ne peut être utilisée ou modifiée sans autorisation.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Nous apprécions votre intérêt pour Paraclet Survey ! Si vous souhaitez contribuer au développement ou signaler des améliorations, veuillez nous contacter directement à [contact@paraclet.com](mailto:contact@paraclet.com). Nous examinerons toutes les suggestions et contributions potentielles.
 
 ## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Pour assurer un environnement accueillant et respectueux, nous suivons le [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct) de la communauté Laravel. Merci de le respecter dans toutes vos interactions avec notre équipe ou notre communauté.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Si vous découvrez une vulnérabilité de sécurité dans Paraclet Survey, veuillez nous contacter immédiatement à [security@paraclet.com](mailto:security@paraclet.com). Toutes les vulnérabilités seront traitées rapidement et confidentiellement.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Paraclet Survey est une application propriétaire développée par Paraclet. Toute reproduction ou distribution non autorisée est strictement interdite. Pour plus d’informations sur les droits d’utilisation, veuillez contacter [legal@paraclet.com](mailto:legal@paraclet.com).

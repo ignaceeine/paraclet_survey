@@ -1,6 +1,12 @@
 @extends('layouts.master')
 @section('title','Accueil')
 @section('content')
+    @if(session('error'))
+        <div class="alert alert-warning border-0 bg-warning mt-2 alert-dismissible fade show w-25">
+            <div class="text-white"><h5><i class="bi bi-exclamation-octagon"></i> {{ session('error') }}</h5></div>
+            <button type="button" class="btn-close text-white" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="wrapper_centering">
         <div class="container_centering">
             <div class="container">

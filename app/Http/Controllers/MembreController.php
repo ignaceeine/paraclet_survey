@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Imports\MembersImport;
+use App\Jobs\SendMemberWelcomeEmail;
+use App\Mail\MemberWelcome;
 use App\Models\Campagne;
 use App\Models\Groupe;
 use App\Models\Membre;
@@ -10,6 +12,9 @@ use App\Models\Question;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MembreController extends Controller
@@ -77,8 +82,10 @@ class MembreController extends Controller
             'groupe_id' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email|unique:users'
         ]);
+
+        $pwd = Str::random(8);
 
         $membre = new Membre();
         $membre->nom = $data['nom'];
@@ -86,8 +93,10 @@ class MembreController extends Controller
         $membre->email = $data['email'];
         $membre->groupe_id = $data['groupe_id'];
         $membre->username = $this->generateUsername();
-        $membre->password = Hash::make('passer123');
+        $membre->password = Hash::make($pwd);
         $membre->save();
+
+        Queue::push(new SendMemberWelcomeEmail($membre,$pwd));
 
         return redirect()->route('admin.groupe')->with('message','Membre ajouté avec succès');
     }

@@ -17,9 +17,7 @@ class GroupeController extends Controller
      */
     public function index()
     {
-        $groupes = Groupe::whereHas('campagne', function ($query) {
-            $query->where('is_deleted', false);
-        })->get();
+        $groupes = Groupe::all()->where('is_deleted',false);
 
         return view('groupe.index', compact('groupes'));
     }
@@ -48,9 +46,16 @@ class GroupeController extends Controller
         $groupe->campagne_id = $data['campagne_id'];
         $groupe->nom_groupe = $data['nom_groupe'];
         $id_groupe = Groupe::create($groupe->toArray())->id;
-        Excel::import(new MembersImport($id_groupe), $data['membres']);
+        $import = new MembersImport($id_groupe);
 
-        return redirect()->route('admin.campagne');
+        Excel::import($import, $data['membres']);
+        $errors = $import->getErrors();
+
+        if (!empty($errors)) {
+            return redirect()->back()->withErrors(['import_errors' => $errors]);
+        }
+
+        return redirect()->route('admin.campagne')->with('message','Membres ajoutés avec succès');
     }
 
     /**

@@ -16,7 +16,17 @@ class FeedbackController extends Controller
 
     public function create()
     {
+        $currentUser = auth()->user();
+        $membres = Membre::where('groupe_id', $currentUser->groupe_id)
+            ->where('id', '!=', $currentUser->id)
+            ->get();
+        return view('feedbacks.select_member', compact('membres'));
+    }
+
+    public function createForMember($membreId)
+    {
+        $membre = Membre::findOrFail($membreId);
         $questions = Question::all();
-        return view('feedbacks.create',compact('questions'));
+        return view('feedbacks.create', compact('questions', 'membre'));
     }
 }

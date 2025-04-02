@@ -19,7 +19,7 @@
                             </div>
                         @else
                             @foreach($questions as $question)
-                                <div class="mb-5">
+                                <div class="mb-3">
                                     <h4 class="text-white mb-4">{{ $question->libelle }}</h4>
                                     <div class="row">
                                         @foreach($reponses->where('question_id', $question->id) as $reponse)

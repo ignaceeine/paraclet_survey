@@ -48,6 +48,9 @@ Route::middleware(['auth','membre'])->group(function () {
     Route::get('/membre', [MembreController::class, 'index'])->name('membre.index');
 
     Route::get('membre/feedbacks/new', [FeedbackController::class, 'create'])->name('feedback.create');
+    Route::get('membre/feedbacks/new/{membreId}', [FeedbackController::class, 'createForMember'])->name('feedback.create_for_member');
+    Route::post('membre/feedbacks/new', [FeedbackController::class, 'store'])->name('feedback.store');
+    Route::get('membre/feedbacks/received', [FeedbackController::class, 'received'])->name('membre.feedback.received');
 });
 
 Route::get('/', function (){

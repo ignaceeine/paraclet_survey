@@ -16,7 +16,7 @@
             </div>
             <!-- Section Feedback reçus -->
             <div class="col-md-4 mb-4">
-                <a href="" class="text-decoration-none">
+                <a href="{{ route('membre.feedback.received') }}" class="text-decoration-none">
                     <div class="card text-center h-100" style="background-color: #000a46">
                         <div class="card-body d-flex flex-column justify-content-center mb-5 mt-5">
                             <h3 class="card-title text-white"><strong>Feedbacks reçus</strong></h3>

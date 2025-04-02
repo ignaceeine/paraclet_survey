@@ -9,7 +9,7 @@
                         <div class="main_title_1">
                             <h3><img src="{{ URL::asset('img/main_icon_1.svg') }}" width="50" height="50" alt="">
                                 Formulaire d'enquête</h3>
-                            <p>Donnez votre avis sur le participants en répondants aux questions suivantes</p>
+                            <p>Donnez votre avis sur votre collègue en répondant aux questions suivantes</p>
                             <p><em>- l'équipe Paraclet</em></p>
                         </div>
                     </div>
@@ -20,12 +20,15 @@
                                 <div id="progressbar"></div>
                             </div>
                             <!-- /top-wizard -->
-                            <form id="wrapped" method="POST" autocomplete="off">
+                            <form id="wrapped" method="POST" autocomplete="off" action="{{ route('feedback.store') }}">
+                                @csrf
                                 <input id="website" name="website" type="text" value="">
+                                <input type="number" name="destinataire_id" value="{{ $membre->id }}" hidden>
                                 <!-- Leave for security protection, read docs for details -->
                                 <div id="middle-wizard">
 
                                     @foreach($questions as $q)
+                                        <input name="question_id[]" value="{{ $q->id }}" hidden>
                                         <div class="step">
                                             <h3 class="main_question"><strong>{{ $loop->iteration }}
                                                     sur {{ count($questions) }}</strong>{{ $q->libelle }}</h3>
@@ -34,7 +37,7 @@
                                                 <textarea name="additional_message_{{ $loop->iteration }}"
                                                           id="additional_{{ $loop->iteration }}_message"
                                                           class="form-control" style="height:200px; resize: none"
-                                                          onkeyup="getVals(this, 'additional_message_{{ $loop->iteration }}');"></textarea>
+                                                          onkeyup="getVals(this, 'additional_message_{{ $loop->iteration }}');" required></textarea>
                                             </div>
                                         </div>
                                     @endforeach
@@ -46,9 +49,9 @@
                                                 @foreach($questions as $q)
                                                     <li>
                                                         <strong>{{ $loop->iteration }}</strong>
-                                                        <h5>{{ $q->libelle }}</h5>
+                                                        <h6>{{ $q->libelle }}</h6>
                                                         <p id="question_{{ $loop->iteration }}" class="mb-2"></p>
-                                                        <p id="additional_message_{{ $loop->iteration }}"></p>
+                                                        <p id="additional_message_{{ $loop->iteration }}" class="bg-success"></p>
                                                     </li>
                                                 @endforeach
                                             </ul>

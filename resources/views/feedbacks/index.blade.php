@@ -31,7 +31,7 @@
                     <td>{{ $m->email }}</td>
                     <td>{{ $m->groupe->nom_groupe }}</td>
                     <td class="text-center">
-                        <a href="#"><i class="bi bi-eye fs-5 text-primary"></i></a>
+                        <a href=""><i class="bi bi-eye fs-5 text-primary"></i></a>
                     </td>
                 </tr>
                 @endforeach

@@ -37,7 +37,7 @@ class CampagneController extends Controller
         ]);
         Campagne::create($data);
 
-        return redirect()->route('admin.campagne');
+        return redirect()->route('admin.campagne')->with('message','La campagne a été crée avec succès');
     }
 
     /**

@@ -40,6 +40,7 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('admin/questions/delete/{id}', [QuestionController::class, 'destroy'])->name('question.destroy');
 
     Route::get('admin/feedbacks', [FeedbackController::class, 'index'])->name('admin.feedback');
+    Route::get('admin/feedbacks/{membreId}', [FeedbackController::class, 'showMemberFeedbacks'])->name('feedback.show_member');
 
     Route::post('/admin/excel', [MembreController::class, 'store'])->name('members.store');
 });

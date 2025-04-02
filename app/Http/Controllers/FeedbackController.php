@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
+use App\Models\Groupe;
 use App\Models\Membre;
 use App\Models\Question;
 use App\Models\Reponse;
@@ -13,8 +14,13 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $membres = Membre::select('id','nom','prenom','email','groupe_id')->where('role','membre')->get();
-        return view('feedbacks.index',compact('membres'));
+        $membres = Membre::with('groupe')
+            ->where('role', 'membre')
+            ->get();
+
+        $groupes = Groupe::all();
+
+        return view('feedbacks.index', compact('membres', 'groupes'));
     }
 
     public function create()
@@ -70,14 +76,26 @@ class FeedbackController extends Controller
     public function received()
     {
         $user = auth()->user();
-        
+
         // Récupérer les feedbacks où l'utilisateur est le destinataire
         $feedbacks = Feedback::where('destinataire_id', $user->id)->get();
-        
+
         // Récupérer toutes les réponses associées à ces feedbacks
         $reponses = Reponse::whereIn('feedback_id', $feedbacks->pluck('id'))->get();
-        
+
         $questions = Question::all();
         return view('membre.feedback_received', compact('reponses', 'questions'));
+    }
+
+    public function showMemberFeedbacks($membreId)
+    {
+        $membre = Membre::findOrFail($membreId);
+        
+        // Récupérer les feedbacks où le membre est le destinataire
+        $feedbacks = Feedback::with(['auteur', 'reponses.question'])
+            ->where('destinataire_id', $membreId)
+            ->get();
+            
+        return view('feedbacks.show_member_feedbacks', compact('membre', 'feedbacks'));
     }
 }

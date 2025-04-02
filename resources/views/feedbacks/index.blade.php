@@ -11,30 +11,44 @@
         <a class="text-white" href="{{ route('admin.index') }}">
             <i class="bi bi-arrow-left" style="font-size: 28px"></i>
         </a>
-        <input type="text" id="searchInput" placeholder="Rechercher..." class="form-control mb-3">
+
+        <div class="row mb-3">
+            <div class="col-md-9">
+                <input type="text" id="searchInput" placeholder="Rechercher..." class="form-control">
+            </div>
+            <div class="col-md-3">
+                <select id="groupeSelect" class="form-control bg-dark-subtle">
+                    <option value="">Tous les groupes</option>
+                    @foreach($groupes as $groupe)
+                        <option value="{{ $groupe->id }}">{{ $groupe->nom_groupe }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead class="table-secondary">
-                <tr>
-                    <th scope="col" class="col-md-2">Prénom</th>
-                    <th scope="col" class="col-md-2">Nom</th>
-                    <th scope="col" class="col-md-4">Email</th>
-                    <th scope="col" class="col-md-3">Groupe</th>
-                    <th scope="col" class="col-md-1">Actions</th>
-                </tr>
+                    <tr>
+                        <th scope="col" class="col-md-4">Prénom(s)</th>
+                        <th scope="col" class="col-md-2">Nom</th>
+                        <th scope="col" class="col-md-5">Email</th>
+                        <th scope="col" class="col-md-1">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach($membres as $m)
-                <tr>
-                    <td>{{ $m->prenom }}</td>
-                    <td>{{ $m->nom }}</td>
-                    <td>{{ $m->email }}</td>
-                    <td>{{ $m->groupe->nom_groupe }}</td>
-                    <td class="text-center">
-                        <a href=""><i class="bi bi-eye fs-5 text-primary"></i></a>
-                    </td>
-                </tr>
-                @endforeach
+                    @foreach($membres as $m)
+                        <tr data-groupe="{{ $m->groupe_id }}">
+                            <td>{{ $m->prenom }}</td>
+                            <td>{{ $m->nom }}</td>
+                            <td>{{ $m->email }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('feedback.show_member', $m->id) }}" class="text-primary-emphasis">
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -50,29 +64,32 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
+            const groupeSelect = document.getElementById('groupeSelect');
             const table = document.querySelector('table');
             const rows = table.querySelectorAll('tbody tr');
 
-            searchInput.addEventListener('input', function() {
+            function filterRows() {
                 const searchTerm = searchInput.value.toLowerCase();
+                const selectedGroupe = groupeSelect.value;
 
                 rows.forEach(row => {
                     const cells = row.querySelectorAll('td');
-                    let found = false;
+                    const groupeId = row.getAttribute('data-groupe');
+                    let matchesSearch = false;
+                    let matchesGroupe = !selectedGroupe || groupeId === selectedGroupe;
 
                     cells.forEach(cell => {
                         if (cell.textContent.toLowerCase().includes(searchTerm)) {
-                            found = true;
+                            matchesSearch = true;
                         }
                     });
 
-                    if (found) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
+                    row.style.display = (matchesSearch && matchesGroupe) ? '' : 'none';
                 });
-            });
+            }
+
+            searchInput.addEventListener('input', filterRows);
+            groupeSelect.addEventListener('change', filterRows);
         });
     </script>
 @endsection

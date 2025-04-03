@@ -5,7 +5,6 @@
         <a class="text-white" href="{{ route('admin.feedback') }}">
             <i class="bi bi-arrow-left" style="font-size: 28px"></i>
         </a>
-
         <div class="card mt-4" style="background-color: #000a46">
             <div class="card-header text-center">
                 <h3 class="card-title text-white">Feedbacks reçus par {{ $membre->prenom }} {{ $membre->nom }}</h3>

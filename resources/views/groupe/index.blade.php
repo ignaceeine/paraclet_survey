@@ -25,23 +25,23 @@
             </thead>
             <tbody>
                 @if($groupes)
-                    @foreach($groupes as $groupe)
+                    @foreach($groupes as $g)
                         <tr>
-                            <td>{{ $groupe->nom_groupe }}</td>
-                            <td>{{ $groupe->campagne->nom_campagne }}</td>
+                            <td>{{ $g->nom_groupe }}</td>
+                            <td>{{ $g->campagne->nom_campagne }}</td>
                             <td>
-                                <a href="{{ route('groupe.edit',$groupe->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
-                                <form action="{{ route('groupe.destroy',$groupe->id) }}" method="POST"
+                                <a href="{{ route('groupe.edit',$g->id) }}"><i class="bi bi-pencil-square fs-5 text-warning"></i></a>
+                                <form action="{{ route('groupe.destroy',$g->id) }}" method="POST"
                                       style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="number" name="id" value="{{ $groupe->id }}" hidden>
+                                    <input type="number" name="id" value="{{ $g->id }}" hidden>
                                     <button type="submit" style="background-color: transparent" class="border-0" onclick="return confirm('Confirmez-vous la suppression de ce groupe ?');">
                                         <i class="bi bi-trash3-fill fs-5 text-danger"></i>
                                     </button>
                                 </form>
-                                <a type="button" href="{{ route('groupe.show',$groupe->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye fs-5 text-primary"></i></a>
-                                <a href="{{ route('membre.create',$groupe->id) }}"><i class="bi bi-person-add fs-5 text-success"></i></a>
+                                <a href="{{ route('groupe.show',$g->id) }}" class="voir-groupe" data-id="{{ $g->id }}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye fs-5 text-primary"></i></a>
+                                <a href="{{ route('membre.create',$g->id) }}"><i class="bi bi-person-add fs-5 text-success"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -105,4 +105,46 @@
 <script src="{{ URL::asset('js/common_scripts.min.js') }}"></script>
 <script src="{{ URL::asset('js/functions.js') }}"></script>
 <script src="{{ URL::asset('js/survey_func.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.voir-groupe').on('click', function () {
+            let groupeId = $(this).data('id'); // Récupérer l'ID du groupe
+            let modal = $('#exampleModal');
+
+            $.ajax({
+                url: '/admin/groupes/show/' + groupeId, // Appelle la route show du contrôleur
+                type: 'GET',
+                success: function (response) {
+                    // Mettre à jour le titre du modal
+                    modal.find('.modal-title').text('Liste des Membres du Groupe ' + response.groupe.nom_groupe);
+
+                    // Mettre à jour le tableau avec les membres
+                    let tbody = modal.find('tbody');
+                    tbody.empty(); // On vide le tableau avant d’ajouter les nouvelles lignes
+
+                    response.membres.forEach(function (membre) {
+                        tbody.append(`
+                            <tr>
+                                <td>${membre.nom}</td>
+                                <td>${membre.prenom}</td>
+                                <td>${membre.email}</td>
+                                <td>
+                                    <form action="groupes/membre/delete/${membre.id}" method="POST" style="display:inline;">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="id" value="${membre.id}">
+                                        <button type="submit" style="background-color: transparent" class="border-0" onclick="return confirm('Confirmez-vous la suppression de ce membre ?');">
+                                            <i class="bi bi-trash3-fill fs-5 text-danger"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                }
+            });
+        });
+    });
+</script>
 @endsection

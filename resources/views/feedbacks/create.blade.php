@@ -9,10 +9,11 @@
                         <div class="main_title_1">
                             <h3><img src="{{ URL::asset('img/main_icon_1.svg') }}" width="50" height="50" alt="">
                                 Formulaire d'enquête</h3>
-                            <p>Donnez votre avis sur votre collègue en répondant aux questions suivantes</p>
+                            <p>Donnez votre avis sur <strong> {{ $membre->prenom }} {{ mb_strtoupper($membre->nom) }} </strong>  en répondant aux questions suivantes</p>
                             <p><em>- l'équipe Paraclet</em></p>
                         </div>
                     </div>
+
                     <!-- /col -->
                     <div class="col-xl-5 col-lg-6 mt-5">
                         <div id="wizard_container">

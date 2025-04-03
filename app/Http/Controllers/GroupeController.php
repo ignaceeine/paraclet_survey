@@ -18,7 +18,6 @@ class GroupeController extends Controller
     public function index()
     {
         $groupes = Groupe::all()->where('is_deleted',false);
-
         return view('groupe.index', compact('groupes'));
     }
 
@@ -63,14 +62,17 @@ class GroupeController extends Controller
      */
     public function show(string $id)
     {
-        $groupe =  Groupe::find($id);
+        $groupe = Groupe::with('membres')->find($id);
         $membres = $groupe->membres;
-        return view('groupe.index',compact('groupe', 'membres'));
+        if (request()->ajax()) {
+            return response()->json([
+                'groupe' => $groupe,
+                'membres' => $membres
+            ]);
+        }
+        return view('groupe.index', compact('groupe', 'membres'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $groupe = Groupe::find($id);

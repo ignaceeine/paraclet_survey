@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 class QuestionObserver
 {
-    /**
-     * Handle the Question "created" event.
-     */
+
     public function created(Question $question): void
     {
         Log::info('Nouvelle question ajoutée', [

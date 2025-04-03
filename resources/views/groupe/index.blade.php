@@ -50,25 +50,25 @@
         </table>
     </div>
 </div>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Liste des Membres du Groupe @isset($groupe->nom_groupe) {{$groupe->nom_groupe}} @endisset</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table caption-top">
-                    <thead>
-                    <tr>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prenom</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table class="table table-striped caption-top">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prénom</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         @if(isset($groupe))
                             @foreach($groupe->membres as $index => $membre)
                                 <tr>
@@ -89,8 +89,9 @@
                                 </tr>
                             @endforeach
                         @endif
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -98,14 +99,12 @@
         </div>
     </div>
 </div>
-
 @endsection
 @section('scripts')
 <script src="{{ URL::asset('js/jquery-3.7.1.min.js') }}"></script>
 <script src="{{ URL::asset('js/common_scripts.min.js') }}"></script>
 <script src="{{ URL::asset('js/functions.js') }}"></script>
 <script src="{{ URL::asset('js/survey_func.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $('.voir-groupe').on('click', function () {

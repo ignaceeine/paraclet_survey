@@ -3,21 +3,12 @@
 
 @section('content')
     <div class="container mt-5 mb-5">
-        <strong>Erreurs disponibles :</strong>
-        @if($errors->any())
+        @if($errors->has('login'))
             <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                @foreach($errors->get('login') as $message)
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @endforeach
             </ul>
-            <strong>Clés d'erreurs :</strong>
-            <ul>
-                @foreach($errors->keys() as $key)
-                    <li>{{ $key }} : {{ $errors->first($key) }}</li>
-                @endforeach
-            </ul>
-        @else
-            <p>Aucune erreur</p>
         @endif
 
         <div class="row justify-content-center">

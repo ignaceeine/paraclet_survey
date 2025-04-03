@@ -2,7 +2,7 @@
 @section('title','Admin')
 @section('content')
     <div class="container mt-5">
-        <h1 class="text-center mb-5 text-white">Dashboard Administrateur</h1>
+        <h1 class="text-center mb-5 text-white">Dashboard Admin</h1>
         <div class="row">
             <!-- Section Questions -->
             <div class="col-md-6 col-lg-3 mb-4">

@@ -2,6 +2,13 @@
 @section('title', 'Sélectionner un membre')
 @section('content')
     <div class="container mt-5 mb-5">
+        @if(session('message'))
+            <div class="alert alert-success border-0 bg-success mt-2 alert-dismissible fade show">
+                <div class="text-white">{{ session('message') }}</div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <a class="text-white" href="{{ route('membre.index') }}">
             <i class="bi bi-arrow-left" style="font-size: 28px"></i>
         </a>

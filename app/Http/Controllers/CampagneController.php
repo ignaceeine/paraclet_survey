@@ -32,8 +32,8 @@ class CampagneController extends Controller
     {
         $data =$request->validate([
             'nom_campagne' => 'required',
-            'date_debut' => 'required',
-            'date_fin' => 'required',
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date|after_or_equal:date_debut',
         ]);
         Campagne::create($data);
 

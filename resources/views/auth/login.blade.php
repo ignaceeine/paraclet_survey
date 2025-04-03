@@ -3,6 +3,23 @@
 
 @section('content')
     <div class="container mt-5 mb-5">
+        <strong>Erreurs disponibles :</strong>
+        @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <strong>Clés d'erreurs :</strong>
+            <ul>
+                @foreach($errors->keys() as $key)
+                    <li>{{ $key }} : {{ $errors->first($key) }}</li>
+                @endforeach
+            </ul>
+        @else
+            <p>Aucune erreur</p>
+        @endif
+
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow-lg rounded">
@@ -15,12 +32,12 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
-                            <!-- Email Address -->
+                            <!-- Login -->
                             <div class="mb-3">
-                                <label for="email" class="form-label" style="font-family: 'Roboto', sans-serif; font-weight: 500;">Email</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                       id="email" name="email" value="{{ old('email') }}" required autofocus>
-                                @error('email')
+                                <label for="login" class="form-label" style="font-family: 'Roboto', sans-serif; font-weight: 500;">Nom d'utilisateur ou Email</label>
+                                <input type="text" class="form-control @error('login') is-invalid @enderror"
+                                       id="login" name="login" value="{{ old('login') }}" required autofocus>
+                                @error('login')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

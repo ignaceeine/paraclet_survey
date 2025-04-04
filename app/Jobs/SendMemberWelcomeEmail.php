@@ -10,18 +10,31 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Throwable;
 
 class SendMemberWelcomeEmail implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue ,Queueable, SerializesModels;
-    protected $member;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    // Stockez les données individuelles plutôt que l'objet entier
+    protected $memberId;
+    protected $memberUsername;
+    protected $memberEmail;
+    protected $memberPrenom;
+    protected $memberNom;
     protected $password;
+
     /**
      * Create a new job instance.
      */
     public function __construct($member, $password)
     {
-        $this->member = $member;
+        // Stocker uniquement les informations nécessaires
+        $this->memberId = $member->id;
+        $this->memberUsername = $member->username;
+        $this->memberEmail = $member->email;
+        $this->memberPrenom = $member->prenom;
+        $this->memberNom = $member->nom;
         $this->password = $password;
     }
 
@@ -31,11 +44,43 @@ class SendMemberWelcomeEmail implements ShouldQueue
     public function handle(): void
     {
         try {
-            Mail::to($this->member->email)->send(new MemberWelcome($this->member, $this->password));
-            Log::info('Mail envoyé à ' . $this->member->email);
+            // Créer un objet temporaire pour le mailable
+            $memberData = (object)[
+                'id' => $this->memberId,
+                'username' => $this->memberUsername,
+                'email' => $this->memberEmail,
+                'prenom' => $this->memberPrenom,
+                'nom' => $this->memberNom
+            ];
+
+            Mail::to($this->memberEmail)->send(new MemberWelcome($memberData, $this->password));
+
+            Log::info('Mail envoyé à ' . $this->memberEmail, [
+                'member_id' => $this->memberId
+            ]);
         }
-        catch (\Exception $e) {
-            Log::error($e->getMessage());
+        catch (Throwable $e) {
+            Log::error('Erreur lors de l\'envoi de l\'email de bienvenue', [
+                'member_id' => $this->memberId,
+                'email' => $this->memberEmail,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            // Relancer l'exception pour que Laravel puisse gérer les tentatives
+            throw $e;
         }
+    }
+
+    /**
+     * Gestion en cas d'échec définitif
+     */
+    public function failed(Throwable $e)
+    {
+        Log::error('Échec définitif de l\'envoi de l\'email de bienvenue', [
+            'member_id' => $this->memberId,
+            'email' => $this->memberEmail,
+            'error' => $e->getMessage()
+        ]);
     }
 }

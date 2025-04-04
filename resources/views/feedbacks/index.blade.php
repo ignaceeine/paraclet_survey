@@ -43,14 +43,41 @@
                             <td>{{ $m->nom }}</td>
                             <td>{{ $m->email }}</td>
                             <td class="text-center">
-                                <a href="{{ route('feedback.show_member', $m->id) }}" class="text-primary-emphasis">
-                                    <i class="bi bi-eye-fill"></i>
-                                </a>
+                                <a href="#" class="text-primary-emphasis edit-btn" data-id="{{ $m->id }}" data-prenom="{{ $m->prenom }}" data-nom="{{ $m->nom }}" ><i class="bi bi-pencil-fill"></i></a>
+                                <a href="{{ route('feedback.show_member', $m->id) }}" class="text-primary-emphasis"><i class="bi bi-eye-fill"></i></a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+<!-- Modal de modification -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Modifier le membre</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm" method="POST" action="{{ route('membre.feedback.update', ':id') }}">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" id="editId" name="id">
+
+                        <div class="mb-3">
+                            <label for="editPrenom" class="form-label">Prénom(s)</label>
+                            <input type="text" class="form-control" id="editPrenom" name="prenom" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editNom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="editNom" name="nom" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -88,6 +115,33 @@
 
             searchInput.addEventListener('input', filterRows);
             groupeSelect.addEventListener('change', filterRows);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+            const editForm = document.getElementById('editForm');
+
+            // Lorsqu'on clique sur l'icône d'édition
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const id = this.dataset.id;
+                    const prenom = this.dataset.prenom;
+                    const nom = this.dataset.nom;
+
+                    // Remplir le formulaire
+                    document.getElementById('editId').value = id;
+                    document.getElementById('editPrenom').value = prenom;
+                    document.getElementById('editNom').value = nom;
+
+                    // Modifier dynamiquement l'action du formulaire
+                    const formAction = "{{ route('membre.feedback.update', ':id') }}".replace(':id', id);
+                    editForm.setAttribute('action', formAction);
+
+                    // Afficher le modal
+                    editModal.show();
+                });
+            });
         });
     </script>
 @endsection

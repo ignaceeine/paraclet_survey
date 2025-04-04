@@ -43,6 +43,7 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('admin/feedbacks/{membreId}', [FeedbackController::class, 'showMemberFeedbacks'])->name('feedback.show_member');
 
     Route::post('/admin/excel', [MembreController::class, 'store'])->name('members.store');
+    Route::put('/membre/feedback/update/{id}', [MembreController::class, 'update'])->name('membre.feedback.update');
 });
 
 Route::middleware(['auth','membre'])->group(function () {

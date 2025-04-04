@@ -63,9 +63,18 @@ class MembreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $request->validate([
+            'prenom' => 'required|string|max:255',
+            'nom' => 'required|string|max:255',
+        ]);
+        $membre = Membre::findOrFail($id);
+        $membre->update([
+            'prenom' => $request->prenom,
+            'nom' => $request->nom,
+        ]);
 
+        return redirect()->route('admin.feedback')->with('message', 'Membre mis à jour avec succès !');
+    }
     /**
      * Remove the specified resource from storage.
      */

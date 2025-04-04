@@ -90,12 +90,12 @@ class FeedbackController extends Controller
     public function showMemberFeedbacks($membreId)
     {
         $membre = Membre::findOrFail($membreId);
-        
+
         // Récupérer les feedbacks où le membre est le destinataire
         $feedbacks = Feedback::with(['auteur', 'reponses.question'])
             ->where('destinataire_id', $membreId)
             ->get();
-            
+
         return view('feedbacks.show_member_feedbacks', compact('membre', 'feedbacks'));
     }
 }

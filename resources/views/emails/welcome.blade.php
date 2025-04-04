@@ -72,6 +72,29 @@
             font-weight: 600;
         }
 
+        .button {
+            display: inline-block;
+            background-color: #000a46;
+            color: white !important;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #001873;
+        }
+
+        .link-text {
+            display: block;
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
         .footer {
             background-color: #000a46;
             color: white;
@@ -107,11 +130,18 @@
         <p>Votre compte a été créé avec succès. Voici vos identifiants de connexion :</p>
         <div class="credentials">
             <ul>
-                <li><strong>Nom d'utilisateur :</strong> {{ $member->username }}</li>
+                <li><strong>Nom d'utilisateur :</strong> {{ $member->username ?? $member->email }}</li>
                 <li><strong>Mot de passe :</strong> {{ $password }}</li>
             </ul>
         </div>
-        <p>Veuillez conserver ces informations en sécurité. Vous pouvez vous connecter via notre site web.</p>
+        <p>Veuillez conserver ces informations en sécurité.</p>
+
+        <div style="text-align: center;">
+            <a href="{{ config('app.url') }}" class="button">Accéder au site</a>
+            <span class="link-text">Ou copier ce lien dans votre navigateur : {{ config('app.url') }}</span>
+        </div>
+
+        <p>Nous sommes ravis de vous compter parmi nos membres. N'hésitez pas à nous contacter si vous avez des questions.</p>
     </div>
     <div class="footer">
         <p>Cordialement,<br>L'équipe Paraclet</p>

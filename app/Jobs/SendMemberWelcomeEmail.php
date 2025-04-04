@@ -56,7 +56,7 @@ class SendMemberWelcomeEmail implements ShouldQueue
             Mail::to($this->memberEmail)->send(new MemberWelcome($memberData, $this->password));
 
             Log::info('Mail envoyé à ' . $this->memberEmail, [
-                'member_id' => $this->memberId
+                'member_id' => $memberData->id,
             ]);
         }
         catch (Throwable $e) {

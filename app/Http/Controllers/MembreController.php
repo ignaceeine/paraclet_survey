@@ -94,7 +94,7 @@ class MembreController extends Controller
             'email' => 'required|email|unique:users'
         ]);
 
-        $pwd = Str::random(8);
+        $pwd = Str::random(10);
 
         $membre = new Membre();
         $membre->nom = $data['nom'];

@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Http\Controllers\MembreController;
 use App\Jobs\SendMemberWelcomeEmail;
 use App\Models\Membre;
+use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -26,7 +27,6 @@ class MembersImport implements
     SkipsOnError,
     WithValidation,
     SkipsEmptyRows,
-    WithBatchInserts,
     WithChunkReading
 {
     private $groupeId;
@@ -103,19 +103,16 @@ class MembersImport implements
                 return null;
             }
 
-            // Générer un mot de passe aléatoire
             $pwd = Str::random(10);
 
-            // Créer le membre
-            $membre = new Membre([
+            $membre = Membre::create([
                 'nom' => $this->sanitizeString($cleanedData['nom']),
                 'prenom' => $this->sanitizeString($cleanedData['prenom']),
                 'email' => strtolower($cleanedData['email']),
                 'groupe_id' => $this->groupeId,
                 'username' => MembreController::generateUsername(),
-                'password' => Hash::make($pwd)
+                'password' => Hash::make($pwd),
             ]);
-
             // Mettre en file d'attente l'envoi de l'email de bienvenue
             Queue::push(new SendMemberWelcomeEmail($membre, $pwd));
 
